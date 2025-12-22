@@ -1,0 +1,232 @@
+:root{
+  --green:#85BE57;            /* 기본 테두리/포인트 */
+  --hover-border:#F0B061;     /* 호버/선택 테두리 */
+  --text:#3F3F3F;             /* 기본 글자색 */
+
+  --paper: rgba(255,255,255,.92);
+  --shadow: 0 14px 40px rgba(0,0,0,.18);
+  --radius: 26px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--text);
+}
+
+.bg-screen{
+  min-height:100vh;
+  background:center/cover no-repeat;
+  position:relative;
+  overflow:hidden;
+}
+
+/* 팝업처럼 보이게 하는 딤 */
+.dim-layer{
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,.65);
+  backdrop-filter: blur(2px);
+}
+
+.back-btn{
+  position:absolute;
+  left:24px;
+  top:24px;
+  z-index:5;
+  width:46px;height:46px;
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  color:#222;
+  background: rgba(255,255,255,.75);
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+  font-size:26px;
+}
+
+.paper-panel{
+  position:relative;
+  z-index:3;
+  width:min(1200px, calc(100% - 80px));
+  margin: 70px auto;
+  padding: 56px 64px;
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* 로그인 카드 */
+.card{
+  width:min(520px, 92vw);
+  margin: 0 auto;
+  padding: 46px 48px;
+  background: rgba(255,255,255,.95);
+  border-radius: 22px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.16);
+  text-align:center;
+}
+
+.title-en{
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 0 0 22px;
+  font-size: 54px;
+}
+
+/* input */
+.input{
+  width:100%;
+  padding: 14px 16px;
+  border: 2px solid #ddd;
+  border-radius: 14px;
+  font-size: 18px;
+  outline:none;
+  background:#fff;
+}
+.input + .input{ margin-top: 14px; }
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  user-select:none;
+  font-weight:900;
+  letter-spacing: 1px;
+}
+
+/* ✅ 버튼 색상: #85BE57 */
+.btn-green{
+  width:100%;
+  margin-top: 18px;
+  height: 64px;
+  border-radius: 18px;
+  background: var(--green);
+  color:white;
+  font-size: 28px;
+  box-shadow: 0 10px 0 rgba(0,0,0,.08);
+}
+.btn-green:hover{
+  filter: brightness(.95); /* 색상 추가 없이 hover 효과 */
+}
+
+/* 링크 */
+.link{
+  display:inline-block;
+  margin-top: 14px;
+  color: #666;
+  text-decoration:none;
+}
+.link:hover{ text-decoration:underline; }
+
+/* === 에러 UI === */
+.err{ color:#d00; font-size:12px; margin-top:6px; min-height:16px; text-align:left; }
+.input-error{ border-color:#d00 !important; outline:none; }
+
+/* 회원가입 */
+.signup-grid{
+  display:grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 46px;
+  align-items:start;
+}
+@media (max-width: 980px){
+  .paper-panel{ padding: 40px 28px; }
+  .signup-grid{ grid-template-columns: 1fr; }
+}
+
+.profile-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.profile-img{
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  object-fit:cover;
+  border: 6px solid rgba(0,0,0,.1);
+  background:#eee;
+}
+
+/* ✅ 칩 버튼도 #85BE57 */
+.btn-chip{
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: var(--green);
+  color:#fff;
+  font-weight:900;
+  font-size: 16px;
+}
+.btn-chip:hover{
+  filter: brightness(.95);
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns: 1fr 120px;
+  gap: 12px;
+  align-items:center;
+  margin-top: 14px;
+}
+@media (max-width: 520px){
+  .form-row{ grid-template-columns: 1fr; }
+}
+
+.check-msg{
+  margin: 6px 0 0 6px;
+  font-size: 13px;
+  min-height: 18px;
+}
+
+.section-title{
+  text-align:center;
+  font-size: 34px;
+  margin: 6px 0 22px;
+  font-weight:900;
+}
+
+/* ✅ 4개 선택이니까 2x2 그리드 */
+.stone-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 110px);
+  gap: 18px;
+  justify-content:center;
+}
+
+.stone{
+  width:110px;height:110px;
+  border-radius: 16px;
+  background:#ddd;
+  border: 4px solid transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-weight:900;
+  font-size:28px;
+  color:#444;
+}
+
+/* ✅ 선택/호버 테두리: #F0B061 */
+.stone:hover{
+  border-color: var(--hover-border);
+}
+.stone.is-selected{
+  border-color: var(--hover-border);
+  background:#e9e9e9;
+}
+
+.signup-submit{
+  margin-top: 42px;
+  width:min(520px, 92%);
+  height: 78px;
+  border-radius: 22px;
+  font-size: 44px;
+}

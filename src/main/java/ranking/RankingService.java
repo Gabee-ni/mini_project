@@ -4,7 +4,7 @@ import java.util.HashMap;	// 한 번에 여러 값 반환
 import java.util.List;	// List 인터페이스 사용 (랭킹 목록)
 import java.util.Map;	// 한 번에 여러 값 반환
 
-import DAO.UserDAO;
+import dao.UserDAO;
 import domain.User;	// 유저 한 명 표현 객체
 
 public class RankingService {

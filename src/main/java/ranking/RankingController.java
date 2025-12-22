@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDAO;
 import domain.User;
 import ranking.RankingService;
-import DAO.UserDAO;
 
 @WebServlet("/ranking")
 public class RankingController extends HttpServlet {

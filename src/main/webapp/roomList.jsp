@@ -255,17 +255,24 @@ body {
   }
   
   function popUpUser() {
-	    const isGuest = userNickname.startsWith("게스트");
+	  const isGuest = userNickname.startsWith("게스트");
 
-	    const url = isGuest
-	        ? ctxPath + "/newUser.jsp"
-	        : ctxPath + "/User.jsp";
+	  // 게스트면 현재 창에서 회원가입 페이지로 이동 (새 창 X)
+	  if (isGuest) {
+	    location.href = ctxPath + "/signup.jsp";   // 또는 login.jsp로 바꿔도 됨
+	    return;
+	  }
 
-	    window.open(
-	        url,
-	        "UserPopup",
-	        "width=1300,height=1100,resizable=no"
-	    );
+	  // 로그인 유저면 마이페이지 팝업(서블릿)
+	  const w = 980, h = 780;
+	  const left = (screen.width - w) / 2;
+	  const top  = (screen.height - h) / 2;
+
+	  window.open(
+	    ctxPath + "/mypage",
+	    "mypagePopup",
+	    "width=" + w + ",height=" + h + ",left=" + left + ",top=" + top + ",resizable=yes,scrollbars=yes"
+	  );
 	}
 
   roomWs.onmessage = function (e) {

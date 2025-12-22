@@ -15,8 +15,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import DAO.UserDAO;
 import chat.ChatService;
+import dao.UserDAO;
 
 @ServerEndpoint(
     value = "/omok/{roomId}",
@@ -77,6 +77,8 @@ public class OmokSocket {
         Player newPlayer = new Player(session, nickname);
         newPlayer.setUserId(user.getUserId());
         newPlayer.setAvatar(user.getAvatar());
+        //돌 이미지 때문에 추가한 코드 - 가빈
+        newPlayer.setStoneStyle(user.getStone_style());
 
         session.getUserProperties().put("name", nickname);
         session.getUserProperties().put("roomId", roomId);

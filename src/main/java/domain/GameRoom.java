@@ -228,6 +228,7 @@ public class GameRoom {
   //가빈 돌 이미지 정하기 함수
     public void applyStoneImage(Player player) {
 	    int styleIdx = player.getStoneStyle() - 1;
+	    System.out.println("스톤 스타일 : "+ styleIdx );
 	    
 	    //게스트일 경우 돌 스타일이 없으니까 -1이 됨
 	    if (styleIdx < 0 || styleIdx >= Image.STONE_IMAGE_LIST.size()) {
